@@ -9,22 +9,15 @@ from db_sqlite import Game
 
 class Pyramid(Game):
     def valid_moves(self, username):
-        """Return list of pairs with valid moves for this player and how to display them.
-
-        For example [('r', 'Rock'), ('p', 'Paper'), ('s', 'Scissors')]
-        :param username: The moves valid for this user
-        :return: List of pairs
-        """
-        return [('r', 'Rock'), ('p', 'Paper'), ('s', 'Scissors')]
-
+        #Not sure how to eliminate the moves that the player has already made
+        return ('0, 1, 2, 3, 4, 5')
     def add_player_move(self, username, move):
         """Add a new move by a player to the game.
 
         :param username: Username of player who moves
-        :param move: One of the strings 'r', 'p', 's'
         """
-        # Discard move if Game not in play (i.e. state != 1), or the move is not r(ock), p(aper) or s(cissors)
-        if self.state != 1 or move not in ('r', 'p', 's'):
+        # Discard move if Game not in play (i.e. state != 1), or the move is not 0, 1, 2, 3, 4, or 5
+        if self.state != 1 or move not in ('0', '1', '2', '3', '4', '5'):
             return
 
         # Find the index (position) of this player in the list of players in the game.
